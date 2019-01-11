@@ -1,3 +1,10 @@
+<?php 
+
+session_start();
+$session['page'] = 'login';
+
+?>
+
 <?php include('../partials/_header.php'); ?>
 
     <!--  contenu de index.php, board.php, login.php, signup.php -->
