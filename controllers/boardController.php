@@ -42,6 +42,24 @@ if( !empty($_POST['list-title']) ) {
     Header('Location: /splists/views/board.php?list=' . $bdd->lastInsertId());
 }
 
+
+/**
+ * CREATE : Créer une Task si il y a un id_list
+ */
+
+if (!empty($_POST['id_list'])) {
+    $res = $bdd->prepare("INSERT INTO tasks(title, description, id_list) VALUES (:t, :d, :id_list)");
+
+    $res->execute([
+        "t" => $_POST['title'],
+        "d" => $_POST['description'],
+        "id_list" => $_POST['id_list']
+    ]);
+
+    Header('Location: /splists/views/board.php?list=' . $_POST['id_list']);
+}
+
+
 /**
  * READ (1 élément) : Lecture d'une liste
  */

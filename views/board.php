@@ -80,17 +80,24 @@
                                     </div>
                             <?php } ?>
                         </div>
-                <?php
-            }
+                        <hr>
+                        <form action="board.php?list=<?= $_GET['list']; ?>" method="POST">
+                            <label for="taskTitle">Titre</label>
+                            <input class="form-control" type="text" name="title" id="taskTitle" placeholder="Titre de la tâche">
 
-            else {
+                            <label for="taskDesc">Description</label>
+                            <input class="form-control" type="text" name="description" id="taskDesc" placeholder="Description de la tâche">
+                            
+                            <input type="hidden" name="id_list" value="<?= $_GET['list']; ?>">
+
+                            <button type="submit" class="btn btn-success">Créer la tâche</button>
+                        </form>
+                <?php 
+                } else {
                 // Cas où je n'ai pas d'ID de liste
                 ?>
                 <h1>Bienvenue sur votre board.</h1>
-                <?php
-            }
-        ?>
-
+                <?php } ?>
         </main>
     </div>
 </div>
